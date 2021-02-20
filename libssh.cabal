@@ -1,0 +1,23 @@
+cabal-version:      2.4
+name:               libssh
+version:            0.1.0.0
+license:            LGPL-2.1-only
+license-file:       LICENSE
+maintainer:         james.hobson@jotron.com
+author:             James Hobson
+synopsis:           Bindings for the libssh library
+category:           Network
+extra-source-files: CHANGELOG.md
+
+library
+    exposed-modules:   Network.SSH.Client
+    pkgconfig-depends: libssh ==0.9.5 || >0.9.5
+    hs-source-dirs:    src
+    other-modules:
+        Network.SSH.Internal
+        Network.SSH.Internal.Types
+
+    default-language:  Haskell2010
+    build-depends:
+        base >=4.14.0.0 && <4.15,
+        inline-c -any
