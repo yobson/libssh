@@ -74,8 +74,8 @@ ssh_clean_pubkey_hash :: Ptr CUChar -> IO ()
 ssh_clean_pubkey_hash hash = [C.exp| void { ssh_clean_pubkey_hash(&$(unsigned char* hash)) } |]
 {-# INLINE ssh_clean_pubkey_hash #-}
 
-ssh_string_free_char :: Ptr CUChar -> IO ()
-ssh_string_free_char hexa = [C.exp| void { ssh_string_free_char($(unsigned char* hexa)) } |]
+ssh_string_free_char :: Ptr CChar -> IO ()
+ssh_string_free_char hexa = [C.exp| void { ssh_string_free_char($(char* hexa)) } |]
 {-# INLINE ssh_string_free_char #-}
 
 ssh_get_hexa :: Ptr CUChar -> CSize -> IO CString
